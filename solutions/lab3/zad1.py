@@ -8,5 +8,4 @@ def printFiles(path, extension):
 if __name__ == "__main__":
     path = str(sys.argv[1])
     ext = str(sys.argv[2])
-    print(path)
     printFiles(path, ext)
