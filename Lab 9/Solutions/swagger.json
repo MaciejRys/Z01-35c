@@ -1,0 +1,705 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Chat",
+        "description": "\n<a href=http://jsonapi.org>Json:API</a> compliant API built with https://github.com/thomaxxl/safrs <br/>\n- <a href=\"https://github.com/thomaxxl/safrs/blob/master/examples/demo_pythonanywhere_com.py\">Source code of this page</a><br/>\n- <a href=\"/ja/index.html\">reactjs+redux frontend</a>\n- <a href=\"/admin/person\">Flask-Admin frontend</a>\n- Auto-generated swagger spec: <a href=/api/swagger.json>swagger.json</a><br/>\n- <a href=\"/swagger_editor/index.html?url=/api/swagger.json\">Swagger2 Editor</a> (updates can be added with the SAFRSAPI \"custom_swagger\" argument)\n",
+        "termsOfService": "",
+        "version": "0.0"
+    },
+    "host": "127.0.0.1:5000",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/Messages/getMessagesByUserID": {
+            "get": {
+                "tags": [
+                    "Messages"
+                ],
+                "description": "Enter to varargs name",
+                "summary": "GetMessagesByUserID",
+                "responses": {
+                    "200": {
+                        "description": "Good",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "meta": {
+                                    "type": "object",
+                                    "properties": {
+                                        "result": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "array",
+                                                    "items": "string"
+                                                },
+                                                "fromId": {
+                                                    "type": "array",
+                                                    "items": "string"
+                                                },
+                                                "toId": {
+                                                    "type": "array",
+                                                    "items": "string"
+                                                },
+                                                "send_time": {
+                                                    "type": "array",
+                                                    "items": "string"
+                                                },
+                                                "message": {
+                                                    "type": "array",
+                                                    "items": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Specified method is invalid for this resource"
+                    },
+                    "400": {
+                        "description": "Bad request syntax or unsupported method"
+                    },
+                    "500": {
+                        "description": "Server got itself in trouble"
+                    }
+                },
+                "parameters": [
+                    {
+                        "default": "",
+                        "type": "string",
+                        "name": "include",
+                        "in": "query",
+                        "format": "string",
+                        "required": false,
+                        "description": "Message relationships to include (csv)"
+                    },
+                    {
+                        "default": "message,fromId,toId,send_time,pm",
+                        "type": "string",
+                        "name": "fields[Message]",
+                        "in": "query",
+                        "format": "string",
+                        "required": false,
+                        "description": "Message fields to include (csv)"
+                    },
+                    {
+                        "name": "varargs",
+                        "in": "query",
+                        "description": "getMessagesByUserID arguments",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/vnd.api+json"
+                ],
+                "operationId": "GetMessagesByUserID_0"
+            }
+        },
+        "/Messages/getMessagesInPm": {
+            "get": {
+                "tags": [
+                    "Messages"
+                ],
+                "description": "getMessagesInPm between two ids",
+                "summary": "getMessagesInPm",
+                "responses": {
+                    "200": {
+                        "description": "Good10",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "meta": {
+                                    "type": "object",
+                                    "properties": {
+                                        "result": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "array",
+                                                    "items": "string"
+                                                },
+                                                "fromId": {
+                                                    "type": "array",
+                                                    "items": "string"
+                                                },
+                                                "toId": {
+                                                    "type": "array",
+                                                    "items": "string"
+                                                },
+                                                "send_time": {
+                                                    "type": "array",
+                                                    "items": "string"
+                                                },
+                                                "message": {
+                                                    "type": "array",
+                                                    "items": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Specified method is invalid for this resource"
+                    },
+                    "400": {
+                        "description": "Bad request syntax or unsupported method"
+                    },
+                    "500": {
+                        "description": "Server got itself in trouble"
+                    }
+                },
+                "parameters": [
+                    {
+                        "default": "",
+                        "type": "string",
+                        "name": "include",
+                        "in": "query",
+                        "format": "string",
+                        "required": false,
+                        "description": "Message relationships to include (csv)"
+                    },
+                    {
+                        "default": "message,fromId,toId,send_time,pm",
+                        "type": "string",
+                        "name": "fields[Message]",
+                        "in": "query",
+                        "format": "string",
+                        "required": false,
+                        "description": "Message fields to include (csv)"
+                    },
+                    {
+                        "name": "varargs",
+                        "in": "query",
+                        "description": "getMessagesInPm arguments",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/vnd.api+json"
+                ],
+                "operationId": "getMessagesInPm_0"
+            }
+        },
+        "/Users/AddUser": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "add user to db",
+                "summary": "AddUser",
+                "responses": {
+                    "200": {
+                        "description": "Good2",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "meta": {
+                                    "type": "object",
+                                    "properties": {
+                                        "result": {
+                                            "type": "object",
+                                            "properties": {
+                                                "result": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Specified method is invalid for this resource"
+                    },
+                    "400": {
+                        "description": "Bad request syntax or unsupported method"
+                    },
+                    "500": {
+                        "description": "Server got itself in trouble"
+                    }
+                },
+                "parameters": [
+                    {
+                        "default": "",
+                        "type": "string",
+                        "name": "include",
+                        "in": "query",
+                        "format": "string",
+                        "required": false,
+                        "description": "User relationships to include (csv)"
+                    },
+                    {
+                        "default": "login,password,online",
+                        "type": "string",
+                        "name": "fields[User]",
+                        "in": "query",
+                        "format": "string",
+                        "required": false,
+                        "description": "User fields to include (csv)"
+                    },
+                    {
+                        "name": "varargs",
+                        "in": "query",
+                        "description": "AddUser arguments",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/vnd.api+json"
+                ],
+                "operationId": "AddUser_0"
+            }
+        },
+        "/Users/GetAuthenticationStatus": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "Enter to varargs user name",
+                "summary": "GetAuthenticationStatus",
+                "responses": {
+                    "200": {
+                        "description": "Good",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "meta": {
+                                    "type": "object",
+                                    "properties": {
+                                        "result": {
+                                            "type": "object",
+                                            "properties": {
+                                                "result": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Specified method is invalid for this resource"
+                    },
+                    "400": {
+                        "description": "Bad request syntax or unsupported method"
+                    },
+                    "500": {
+                        "description": "Server got itself in trouble"
+                    }
+                },
+                "parameters": [
+                    {
+                        "default": "",
+                        "type": "string",
+                        "name": "include",
+                        "in": "query",
+                        "format": "string",
+                        "required": false,
+                        "description": "User relationships to include (csv)"
+                    },
+                    {
+                        "default": "login,password,online",
+                        "type": "string",
+                        "name": "fields[User]",
+                        "in": "query",
+                        "format": "string",
+                        "required": false,
+                        "description": "User fields to include (csv)"
+                    },
+                    {
+                        "name": "varargs",
+                        "in": "query",
+                        "description": "GetAuthenticationStatus arguments",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/vnd.api+json"
+                ],
+                "operationId": "GetAuthenticationStatus_0"
+            }
+        },
+        "/Users/Logout": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "Logout user",
+                "summary": "Logout",
+                "responses": {
+                    "200": {
+                        "description": "Good4",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "meta": {
+                                    "type": "object",
+                                    "properties": {
+                                        "result": {
+                                            "type": "object",
+                                            "properties": {
+                                                "result": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Specified method is invalid for this resource"
+                    },
+                    "400": {
+                        "description": "Bad request syntax or unsupported method"
+                    },
+                    "500": {
+                        "description": "Server got itself in trouble"
+                    }
+                },
+                "parameters": [
+                    {
+                        "default": "",
+                        "type": "string",
+                        "name": "include",
+                        "in": "query",
+                        "format": "string",
+                        "required": false,
+                        "description": "User relationships to include (csv)"
+                    },
+                    {
+                        "default": "login,password,online",
+                        "type": "string",
+                        "name": "fields[User]",
+                        "in": "query",
+                        "format": "string",
+                        "required": false,
+                        "description": "User fields to include (csv)"
+                    },
+                    {
+                        "name": "varargs",
+                        "in": "query",
+                        "description": "Logout arguments",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/vnd.api+json"
+                ],
+                "operationId": "Logout_0"
+            }
+        },
+        "/Users/SendMessages": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "Invoke User.SendMessages",
+                "summary": "Invoke User.SendMessages",
+                "responses": {
+                    "200": {
+                        "description": "Request fulfilled, document follows"
+                    },
+                    "405": {
+                        "description": "Specified method is invalid for this resource"
+                    },
+                    "400": {
+                        "description": "Bad request syntax or unsupported method"
+                    },
+                    "500": {
+                        "description": "Server got itself in trouble"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "post_User_SendMessages",
+                        "in": "body",
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/post_User_SendMessages"
+                        },
+                        "required": true
+                    }
+                ],
+                "produces": [
+                    "application/vnd.api+json"
+                ],
+                "operationId": "InvokeUserSendMessages_0"
+            }
+        },
+        "/Users/getAllOnlineUsers": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "gett list of online users",
+                "summary": "getAllOnlineUsers",
+                "responses": {
+                    "200": {
+                        "description": "Good7",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "meta": {
+                                    "type": "object",
+                                    "properties": {
+                                        "result": {
+                                            "type": "object",
+                                            "properties": {
+                                                "users": {
+                                                    "type": "array",
+                                                    "items": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Specified method is invalid for this resource"
+                    },
+                    "400": {
+                        "description": "Bad request syntax or unsupported method"
+                    },
+                    "500": {
+                        "description": "Server got itself in trouble"
+                    }
+                },
+                "parameters": [
+                    {
+                        "default": "",
+                        "type": "string",
+                        "name": "include",
+                        "in": "query",
+                        "format": "string",
+                        "required": false,
+                        "description": "User relationships to include (csv)"
+                    },
+                    {
+                        "default": "login,password,online",
+                        "type": "string",
+                        "name": "fields[User]",
+                        "in": "query",
+                        "format": "string",
+                        "required": false,
+                        "description": "User fields to include (csv)"
+                    },
+                    {
+                        "name": "varargs",
+                        "in": "query",
+                        "description": "getAllOnlineUsers arguments",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/vnd.api+json"
+                ],
+                "operationId": "getAllOnlineUsers_0"
+            }
+        },
+        "/Users/getIdByLogin": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "get Id By Login",
+                "summary": "getIdByLogin",
+                "responses": {
+                    "200": {
+                        "description": "Good3",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "meta": {
+                                    "type": "object",
+                                    "properties": {
+                                        "result": {
+                                            "type": "object",
+                                            "properties": {
+                                                "result": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Specified method is invalid for this resource"
+                    },
+                    "400": {
+                        "description": "Bad request syntax or unsupported method"
+                    },
+                    "500": {
+                        "description": "Server got itself in trouble"
+                    }
+                },
+                "parameters": [
+                    {
+                        "default": "",
+                        "type": "string",
+                        "name": "include",
+                        "in": "query",
+                        "format": "string",
+                        "required": false,
+                        "description": "User relationships to include (csv)"
+                    },
+                    {
+                        "default": "login,password,online",
+                        "type": "string",
+                        "name": "fields[User]",
+                        "in": "query",
+                        "format": "string",
+                        "required": false,
+                        "description": "User fields to include (csv)"
+                    },
+                    {
+                        "name": "varargs",
+                        "in": "query",
+                        "description": "getIdByLogin arguments",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/vnd.api+json"
+                ],
+                "operationId": "getIdByLogin_0"
+            }
+        },
+        "/Users/getLoginById": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "get Login by id",
+                "summary": "getLoginById",
+                "responses": {
+                    "200": {
+                        "description": "Good4",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "meta": {
+                                    "type": "object",
+                                    "properties": {
+                                        "result": {
+                                            "type": "object",
+                                            "properties": {
+                                                "result": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Specified method is invalid for this resource"
+                    },
+                    "400": {
+                        "description": "Bad request syntax or unsupported method"
+                    },
+                    "500": {
+                        "description": "Server got itself in trouble"
+                    }
+                },
+                "parameters": [
+                    {
+                        "default": "",
+                        "type": "string",
+                        "name": "include",
+                        "in": "query",
+                        "format": "string",
+                        "required": false,
+                        "description": "User relationships to include (csv)"
+                    },
+                    {
+                        "default": "login,password,online",
+                        "type": "string",
+                        "name": "fields[User]",
+                        "in": "query",
+                        "format": "string",
+                        "required": false,
+                        "description": "User fields to include (csv)"
+                    },
+                    {
+                        "name": "varargs",
+                        "in": "query",
+                        "description": "getLoginById arguments",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/vnd.api+json"
+                ],
+                "operationId": "getLoginById_0"
+            }
+        }
+    },
+    "definitions": {
+        "post_User_AddUser": {
+            "properties": {}
+        },
+        "post_User_GetAuthenticationStatus": {
+            "properties": {}
+        },
+        "post_User_Logout": {
+            "properties": {}
+        },
+        "post_User_SendMessages": {
+            "properties": {
+                "meta": {
+                    "$ref": "#/definitions/User_SendMessages1"
+                }
+            }
+        },
+        "User_SendMessages1": {
+            "properties": {
+                "method": {
+                    "example": "SendMessages",
+                    "type": "string"
+                },
+                "args": {
+                    "example": {
+                        "fromId": "fromID",
+                        "toId": "toId",
+                        "message": "message",
+                        "pm": "pm"
+                    },
+                    "type": "string"
+                }
+            }
+        },
+        "post_User_getAllOnlineUsers": {
+            "properties": {}
+        },
+        "post_User_getIdByLogin": {
+            "properties": {}
+        },
+        "post_User_getLoginById": {
+            "properties": {}
+        },
+        "post_Message_getMessagesByUserID": {
+            "properties": {}
+        },
+        "post_Message_getMessagesInPm": {
+            "properties": {}
+        }
+    }
+}
