@@ -1,0 +1,1681 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Chat",
+    "description": "\n<a href=http://jsonapi.org>Json:API</a> compliant API built with https://github.com/thomaxxl/safrs <br/>\n- <a href=\"https://github.com/thomaxxl/safrs/blob/master/examples/demo_pythonanywhere_com.py\">Source code of this page</a><br/>\n- <a href=\"/ja/index.html\">reactjs+redux frontend</a>\n- <a href=\"/admin/person\">Flask-Admin frontend</a>\n- Auto-generated swagger spec: <a href=/api/swagger.json>swagger.json</a><br/>\n- <a href=\"/swagger_editor/index.html?url=/api/swagger.json\">Swagger2 Editor</a> (updates can be added with the SAFRSAPI \"custom_swagger\" argument)\n",
+    "termsOfService": "",
+    "version": "0.0"
+  },
+  "host": "127.0.0.1:5000",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/Messages/": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Retrieve a collection of Message objects",
+        "parameters": [
+          {
+            "default": "",
+            "type": "string",
+            "name": "include",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "Message relationships to include (csv)"
+          },
+          {
+            "default": "message,fromId,toId,send_time,isRead",
+            "type": "string",
+            "name": "fields[Message]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "Message fields to include (csv)"
+          },
+          {
+            "default": 0,
+            "type": "integer",
+            "name": "page[offset]",
+            "in": "query",
+            "format": "int64",
+            "required": false,
+            "description": "Page offset"
+          },
+          {
+            "default": 10,
+            "type": "integer",
+            "name": "page[limit]",
+            "in": "query",
+            "format": "int64",
+            "required": false,
+            "description": "Max number of items"
+          },
+          {
+            "default": "message,fromId,toId,send_time,isRead,id",
+            "type": "string",
+            "name": "sort",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "Sort order"
+          },
+          {
+            "default": "",
+            "type": "string",
+            "name": "filter[message]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "message attribute filter (csv)"
+          },
+          {
+            "default": "",
+            "type": "string",
+            "name": "filter[fromId]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "fromId attribute filter (csv)"
+          },
+          {
+            "default": "",
+            "type": "string",
+            "name": "filter[toId]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "toId attribute filter (csv)"
+          },
+          {
+            "default": "",
+            "type": "string",
+            "name": "filter[send_time]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "send_time attribute filter (csv)"
+          },
+          {
+            "default": "",
+            "type": "string",
+            "name": "filter[isRead]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "isRead attribute filter (csv)"
+          },
+          {
+            "default": "",
+            "type": "string",
+            "name": "filter[id]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "id attribute filter (csv)"
+          },
+          {
+            "default": "",
+            "type": "string",
+            "name": "filter",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "Custom Message filter"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/vnd.api+json",
+            "enum": [
+              "application/vnd.api+json",
+              "application/json"
+            ],
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Message_coll"
+            },
+            "description": "Request fulfilled, document follows"
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_403"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_404"
+            }
+          }
+        },
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "description": "Retrieve Message from Messages",
+        "operationId": "RetrieveacollectionofMessageobjects_0"
+      },
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Create Message",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/vnd.api+json",
+            "enum": [
+              "application/vnd.api+json",
+              "application/json"
+            ],
+            "required": true
+          },
+          {
+            "name": "POST body",
+            "in": "body",
+            "description": "Message attributes",
+            "schema": {
+              "$ref": "#/definitions/Message_inst1"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/Message_inst"
+            },
+            "description": "Created"
+          },
+          "202": {
+            "description": "Accepted"
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_403"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_404"
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_409"
+            }
+          }
+        },
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "operationId": "CreateMessage_0"
+      }
+    },
+    "/Messages/getMessagesInChat": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "description": "getMessagesInChat",
+        "summary": "getMessagesInChat",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "fromId": {
+                    "type": "string"
+                  },
+                  "toId": {
+                    "type": "string"
+                  },
+                  "send_time": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "default": "",
+            "type": "string",
+            "name": "include",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "Message relationships to include (csv)"
+          },
+          {
+            "default": "message,fromId,toId,send_time,isRead",
+            "type": "string",
+            "name": "fields[Message]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "Message fields to include (csv)"
+          },
+          {
+            "name": "varargs",
+            "in": "query",
+            "description": "getMessagesInChat arguments",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "operationId": "getMessagesInChat_0"
+      }
+    },
+    "/Messages/getMessagesInPm": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "description": "getMessagesInPm",
+        "summary": "getMessagesInPm",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "fromId": {
+                    "type": "string"
+                  },
+                  "toId": {
+                    "type": "string"
+                  },
+                  "isRead": {
+                    "type": "string"
+                  },
+                  "send_time": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "default": "",
+            "type": "string",
+            "name": "include",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "Message relationships to include (csv)"
+          },
+          {
+            "default": "message,fromId,toId,send_time,isRead",
+            "type": "string",
+            "name": "fields[Message]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "Message fields to include (csv)"
+          },
+          {
+            "name": "varargs",
+            "in": "query",
+            "description": "getMessagesInPm arguments",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "operationId": "getMessagesInPm_0"
+      }
+    },
+    "/Messages/getNumberOfUnreadMessagesForUser": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "description": "getNumberOfUnreadMessagesForUser",
+        "summary": "getNumberOfUnreadMessagesForUser",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "fromId": {
+                    "type": "string"
+                  },
+                  "send_time": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "numberOfMessages": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "default": "",
+            "type": "string",
+            "name": "include",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "Message relationships to include (csv)"
+          },
+          {
+            "default": "message,fromId,toId,send_time,isRead",
+            "type": "string",
+            "name": "fields[Message]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "Message fields to include (csv)"
+          },
+          {
+            "name": "varargs",
+            "in": "query",
+            "description": "getNumberOfUnreadMessagesForUser arguments",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "operationId": "getNumberOfUnreadMessagesForUser_0"
+      }
+    },
+    "/Messages/{MessageId}/": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Retrieve Message instance",
+        "parameters": [
+          {
+            "default": "",
+            "type": "string",
+            "name": "include",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "Message relationships to include (csv)"
+          },
+          {
+            "default": "message,fromId,toId,send_time,isRead",
+            "type": "string",
+            "name": "fields[Message]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "Message fields to include (csv)"
+          },
+          {
+            "name": "MessageId",
+            "in": "path",
+            "type": "string",
+            "default": "1",
+            "required": true
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/vnd.api+json",
+            "enum": [
+              "application/vnd.api+json",
+              "application/json"
+            ],
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Message_inst"
+            },
+            "description": "Request fulfilled, document follows"
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_403"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_404"
+            }
+          }
+        },
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "description": "Retrieve Message from Messages",
+        "operationId": "RetrieveMessageinstance_0"
+      },
+      "patch": {
+        "tags": [
+          "Messages"
+        ],
+        "parameters": [
+          {
+            "name": "MessageId",
+            "in": "path",
+            "type": "string",
+            "default": "1",
+            "required": true
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/vnd.api+json",
+            "enum": [
+              "application/vnd.api+json",
+              "application/json"
+            ],
+            "required": true
+          },
+          {
+            "name": "PATCH body",
+            "in": "body",
+            "description": "Message attributes",
+            "schema": {
+              "$ref": "#/definitions/Message_inst"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Message_inst"
+            },
+            "description": "Request fulfilled, document follows"
+          },
+          "202": {
+            "description": "Accepted"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_403"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_404"
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_409"
+            }
+          }
+        },
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "summary": "Update Message",
+        "description": "Update Message attributes",
+        "operationId": "UpdateMessage_0"
+      },
+      "delete": {
+        "tags": [
+          "Messages"
+        ],
+        "parameters": [
+          {
+            "name": "MessageId",
+            "in": "path",
+            "type": "string",
+            "default": "1",
+            "required": true
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/vnd.api+json",
+            "enum": [
+              "application/vnd.api+json",
+              "application/json"
+            ],
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Message_inst"
+            }
+          },
+          "202": {
+            "description": "Accepted"
+          },
+          "204": {
+            "description": "Request fulfilled, nothing follows"
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_403"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_404"
+            }
+          }
+        },
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "summary": "Delete Message from Messages",
+        "operationId": "DeleteMessagefromMessages_0"
+      }
+    },
+    "/Users/": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Retrieve a collection of User objects",
+        "parameters": [
+          {
+            "default": "",
+            "type": "string",
+            "name": "include",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User relationships to include (csv)"
+          },
+          {
+            "default": "login,password,online",
+            "type": "string",
+            "name": "fields[User]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User fields to include (csv)"
+          },
+          {
+            "default": 0,
+            "type": "integer",
+            "name": "page[offset]",
+            "in": "query",
+            "format": "int64",
+            "required": false,
+            "description": "Page offset"
+          },
+          {
+            "default": 10,
+            "type": "integer",
+            "name": "page[limit]",
+            "in": "query",
+            "format": "int64",
+            "required": false,
+            "description": "Max number of items"
+          },
+          {
+            "default": "login,password,online,id",
+            "type": "string",
+            "name": "sort",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "Sort order"
+          },
+          {
+            "default": "",
+            "type": "string",
+            "name": "filter[login]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "login attribute filter (csv)"
+          },
+          {
+            "default": "",
+            "type": "string",
+            "name": "filter[password]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "password attribute filter (csv)"
+          },
+          {
+            "default": "",
+            "type": "string",
+            "name": "filter[online]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "online attribute filter (csv)"
+          },
+          {
+            "default": "",
+            "type": "string",
+            "name": "filter[id]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "id attribute filter (csv)"
+          },
+          {
+            "default": "",
+            "type": "string",
+            "name": "filter",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "Custom User filter"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/vnd.api+json",
+            "enum": [
+              "application/vnd.api+json",
+              "application/json"
+            ],
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/User_coll"
+            },
+            "description": "Request fulfilled, document follows"
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_403"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_404"
+            }
+          }
+        },
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "description": "Retrieve User from Users",
+        "operationId": "RetrieveacollectionofUserobjects_0"
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create User",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/vnd.api+json",
+            "enum": [
+              "application/vnd.api+json",
+              "application/json"
+            ],
+            "required": true
+          },
+          {
+            "name": "POST body",
+            "in": "body",
+            "description": "User attributes",
+            "schema": {
+              "$ref": "#/definitions/User_inst1"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/User_inst"
+            },
+            "description": "Created"
+          },
+          "202": {
+            "description": "Accepted"
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_403"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_404"
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_409"
+            }
+          }
+        },
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "operationId": "CreateUser_0"
+      }
+    },
+    "/Users/addUser": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "addUser",
+        "summary": "addUser",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "default": "",
+            "type": "string",
+            "name": "include",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User relationships to include (csv)"
+          },
+          {
+            "default": "login,password,online",
+            "type": "string",
+            "name": "fields[User]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User fields to include (csv)"
+          },
+          {
+            "name": "varargs",
+            "in": "query",
+            "description": "addUser arguments",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "operationId": "addUser_0"
+      }
+    },
+    "/Users/getAllUsers": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "getAllUsers",
+        "summary": "getAllUsers",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "login": {
+                    "type": "string"
+                  },
+                  "online": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "default": "",
+            "type": "string",
+            "name": "include",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User relationships to include (csv)"
+          },
+          {
+            "default": "login,password,online",
+            "type": "string",
+            "name": "fields[User]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User fields to include (csv)"
+          },
+          {
+            "name": "varargs",
+            "in": "query",
+            "description": "getAllUsers arguments",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "operationId": "getAllUsers_0"
+      }
+    },
+    "/Users/getAuthenticationStatus": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "getAuthenticationStatus",
+        "summary": "getAuthenticationStatus",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "default": "",
+            "type": "string",
+            "name": "include",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User relationships to include (csv)"
+          },
+          {
+            "default": "login,password,online",
+            "type": "string",
+            "name": "fields[User]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User fields to include (csv)"
+          },
+          {
+            "name": "varargs",
+            "in": "query",
+            "description": "getAuthenticationStatus arguments",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "operationId": "getAuthenticationStatus_0"
+      }
+    },
+    "/Users/getIdByLogin": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "getIdByLogin",
+        "summary": "getIdByLogin",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "default": "",
+            "type": "string",
+            "name": "include",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User relationships to include (csv)"
+          },
+          {
+            "default": "login,password,online",
+            "type": "string",
+            "name": "fields[User]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User fields to include (csv)"
+          },
+          {
+            "name": "varargs",
+            "in": "query",
+            "description": "getIdByLogin arguments",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "operationId": "getIdByLogin_0"
+      }
+    },
+    "/Users/getLoginById": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "getLoginById",
+        "summary": "getLoginById",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "default": "",
+            "type": "string",
+            "name": "include",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User relationships to include (csv)"
+          },
+          {
+            "default": "login,password,online",
+            "type": "string",
+            "name": "fields[User]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User fields to include (csv)"
+          },
+          {
+            "name": "varargs",
+            "in": "query",
+            "description": "getLoginById arguments",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "operationId": "getLoginById_0"
+      }
+    },
+    "/Users/logout": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "logout",
+        "summary": "logout",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "default": "",
+            "type": "string",
+            "name": "include",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User relationships to include (csv)"
+          },
+          {
+            "default": "login,password,online",
+            "type": "string",
+            "name": "fields[User]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User fields to include (csv)"
+          },
+          {
+            "name": "varargs",
+            "in": "query",
+            "description": "logout arguments",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "operationId": "logout_0"
+      }
+    },
+    "/Users/sendMessages": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "sendMessages",
+        "summary": "sendMessages",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "default": "",
+            "type": "string",
+            "name": "include",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User relationships to include (csv)"
+          },
+          {
+            "default": "login,password,online",
+            "type": "string",
+            "name": "fields[User]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User fields to include (csv)"
+          },
+          {
+            "name": "varargs",
+            "in": "query",
+            "description": "sendMessages arguments",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "operationId": "sendMessages_0"
+      }
+    },
+    "/Users/{UserId}/": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Retrieve User instance",
+        "parameters": [
+          {
+            "default": "",
+            "type": "string",
+            "name": "include",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User relationships to include (csv)"
+          },
+          {
+            "default": "login,password,online",
+            "type": "string",
+            "name": "fields[User]",
+            "in": "query",
+            "format": "string",
+            "required": false,
+            "description": "User fields to include (csv)"
+          },
+          {
+            "name": "UserId",
+            "in": "path",
+            "type": "string",
+            "default": "1",
+            "required": true
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/vnd.api+json",
+            "enum": [
+              "application/vnd.api+json",
+              "application/json"
+            ],
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/User_inst"
+            },
+            "description": "Request fulfilled, document follows"
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_403"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_404"
+            }
+          }
+        },
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "description": "Retrieve User from Users",
+        "operationId": "RetrieveUserinstance_0"
+      },
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "UserId",
+            "in": "path",
+            "type": "string",
+            "default": "1",
+            "required": true
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/vnd.api+json",
+            "enum": [
+              "application/vnd.api+json",
+              "application/json"
+            ],
+            "required": true
+          },
+          {
+            "name": "PATCH body",
+            "in": "body",
+            "description": "User attributes",
+            "schema": {
+              "$ref": "#/definitions/User_inst"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/User_inst"
+            },
+            "description": "Request fulfilled, document follows"
+          },
+          "202": {
+            "description": "Accepted"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_403"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_404"
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_409"
+            }
+          }
+        },
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "summary": "Update User",
+        "description": "Update User attributes",
+        "operationId": "UpdateUser_0"
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "UserId",
+            "in": "path",
+            "type": "string",
+            "default": "1",
+            "required": true
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "type": "string",
+            "default": "application/vnd.api+json",
+            "enum": [
+              "application/vnd.api+json",
+              "application/json"
+            ],
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/User_inst"
+            }
+          },
+          "202": {
+            "description": "Accepted"
+          },
+          "204": {
+            "description": "Request fulfilled, nothing follows"
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_403"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/jsonapi_error_404"
+            }
+          }
+        },
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "summary": "Delete User from Users",
+        "operationId": "DeleteUserfromUsers_0"
+      }
+    }
+  },
+  "definitions": {
+    "post_User_addUser": {
+      "properties": {},
+      "description": ""
+    },
+    "post_User_getAllUsers": {
+      "properties": {},
+      "description": ""
+    },
+    "post_User_getAuthenticationStatus": {
+      "properties": {},
+      "description": ""
+    },
+    "post_User_getIdByLogin": {
+      "properties": {},
+      "description": ""
+    },
+    "post_User_getLoginById": {
+      "properties": {},
+      "description": ""
+    },
+    "post_User_logout": {
+      "properties": {},
+      "description": ""
+    },
+    "post_User_sendMessages": {
+      "properties": {},
+      "description": ""
+    },
+    "jsonapi_error_403": {
+      "properties": {
+        "errors": {
+          "example": [
+            {
+              "title": "Request forbidden -- authorization will not help",
+              "detail": "",
+              "code": "403"
+            }
+          ],
+          "type": "string"
+        }
+      },
+      "description": ""
+    },
+    "jsonapi_error_404": {
+      "properties": {
+        "errors": {
+          "example": [
+            {
+              "title": "Nothing matches the given URI",
+              "detail": "",
+              "code": "404"
+            }
+          ],
+          "type": "string"
+        }
+      },
+      "description": ""
+    },
+    "User_coll1": {
+      "properties": {
+        "data": {
+          "example": [
+            {
+              "attributes": {
+                "login": "",
+                "password": "",
+                "online": "False"
+              },
+              "type": "User",
+              "id": "1",
+              "relationships": {}
+            }
+          ],
+          "type": "string"
+        }
+      },
+      "description": "User get;"
+    },
+    "User_inst1": {
+      "properties": {
+        "data": {
+          "example": {
+            "attributes": {
+              "login": "",
+              "password": "",
+              "online": "False"
+            },
+            "type": "User"
+          },
+          "type": "string"
+        }
+      },
+      "description": "User post;"
+    },
+    "jsonapi_error_409": {
+      "properties": {
+        "errors": {
+          "example": [
+            {
+              "title": "Request conflict",
+              "detail": "",
+              "code": "409"
+            }
+          ],
+          "type": "string"
+        }
+      },
+      "description": ""
+    },
+    "User_inst": {
+      "properties": {
+        "data": {
+          "example": {
+            "attributes": {
+              "login": "",
+              "password": "",
+              "online": "False"
+            },
+            "type": "User",
+            "id": "1"
+          },
+          "type": "string"
+        }
+      },
+      "description": "User patch;User post;User delete;User options;User patch;User post;User delete;User options;"
+    },
+    "Invoke _User_addUser": {
+      "properties": {}
+    },
+    "options_User_addUser": {
+      "properties": {}
+    },
+    "Invoke _User_getAllUsers": {
+      "properties": {}
+    },
+    "options_User_getAllUsers": {
+      "properties": {}
+    },
+    "Invoke _User_getAuthenticationStatus": {
+      "properties": {}
+    },
+    "options_User_getAuthenticationStatus": {
+      "properties": {}
+    },
+    "Invoke _User_getIdByLogin": {
+      "properties": {}
+    },
+    "options_User_getIdByLogin": {
+      "properties": {}
+    },
+    "Invoke _User_getLoginById": {
+      "properties": {}
+    },
+    "options_User_getLoginById": {
+      "properties": {}
+    },
+    "Invoke _User_logout": {
+      "properties": {}
+    },
+    "options_User_logout": {
+      "properties": {}
+    },
+    "Invoke _User_sendMessages": {
+      "properties": {}
+    },
+    "options_User_sendMessages": {
+      "properties": {}
+    },
+    "User_coll": {
+      "properties": {
+        "data": {
+          "example": [
+            {
+              "attributes": {
+                "login": "",
+                "password": "",
+                "online": "False"
+              },
+              "type": "User",
+              "id": "1"
+            }
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "post_Message_getMessagesInChat": {
+      "properties": {},
+      "description": ""
+    },
+    "post_Message_getMessagesInPm": {
+      "properties": {},
+      "description": ""
+    },
+    "post_Message_getNumberOfUnreadMessagesForUser": {
+      "properties": {},
+      "description": ""
+    },
+    "Message_coll1": {
+      "properties": {
+        "data": {
+          "example": [
+            {
+              "attributes": {
+                "message": "",
+                "fromId": 0,
+                "toId": "-1",
+                "send_time": "2021-01-06 19:58:30.700754",
+                "isRead": "False"
+              },
+              "type": "Message",
+              "id": "1",
+              "relationships": {}
+            }
+          ],
+          "type": "string"
+        }
+      },
+      "description": "Message get;"
+    },
+    "Message_inst1": {
+      "properties": {
+        "data": {
+          "example": {
+            "attributes": {
+              "message": "",
+              "fromId": 0,
+              "toId": "-1",
+              "send_time": "2021-01-06 19:58:30.700754",
+              "isRead": "False"
+            },
+            "type": "Message"
+          },
+          "type": "string"
+        }
+      },
+      "description": "Message post;"
+    },
+    "Message_inst": {
+      "properties": {
+        "data": {
+          "example": {
+            "attributes": {
+              "message": "",
+              "fromId": 0,
+              "toId": "-1",
+              "send_time": "2021-01-06 19:58:30.700754",
+              "isRead": "False"
+            },
+            "type": "Message",
+            "id": "1"
+          },
+          "type": "string"
+        }
+      },
+      "description": "Message patch;Message post;Message delete;Message options;Message patch;Message post;Message delete;Message options;"
+    },
+    "Invoke _Message_getMessagesInChat": {
+      "properties": {}
+    },
+    "options_Message_getMessagesInChat": {
+      "properties": {}
+    },
+    "Invoke _Message_getMessagesInPm": {
+      "properties": {}
+    },
+    "options_Message_getMessagesInPm": {
+      "properties": {}
+    },
+    "Invoke _Message_getNumberOfUnreadMessagesForUser": {
+      "properties": {}
+    },
+    "options_Message_getNumberOfUnreadMessagesForUser": {
+      "properties": {}
+    },
+    "Message_coll": {
+      "properties": {
+        "data": {
+          "example": [
+            {
+              "attributes": {
+                "message": "",
+                "fromId": 0,
+                "toId": "-1",
+                "send_time": "2021-01-06 19:58:30.700754",
+                "isRead": "False"
+              },
+              "type": "Message",
+              "id": "1"
+            }
+          ],
+          "type": "string"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "description": "My user description",
+      "name": "Users"
+    },
+    {
+      "description": "My Message description",
+      "name": "Messages"
+    }
+  ]
+}
